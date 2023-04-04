@@ -9,12 +9,32 @@ function App() {
   const [theme, setTheme] = useState('light')
   return (
       <>
-        <ThemeContext.Provider value={theme}>
-        <Form/>
-      </ThemeContext.Provider>
-        <Button onClick={() => {
-        setTheme(theme === "dark" ? 'light' : 'dark')}
-        }>Toggle theme</Button>
+          <div>
+              <ThemeContext.Provider value={theme}>
+              <Form title={'Welcome'}/>
+          </ThemeContext.Provider>
+              <Button onClick={() => {
+                  setTheme(theme === "dark" ? 'light' : 'dark')
+              }
+              }>Toggle theme</Button>
+          </div>
+          <div>
+              <ThemeContext.Provider value={theme}>
+                  <Form title={"Hello"}/>
+
+              <label>
+                  <input
+                      type="checkbox"
+                      checked={theme === 'dark'}
+                      onChange={(e) => {
+                          setTheme(e.target.checked ? 'dark' : 'light')
+                      }}
+                  />
+                  Use dark mode
+              </label>
+              </ThemeContext.Provider>
+
+          </div>
 
       </>
   );
